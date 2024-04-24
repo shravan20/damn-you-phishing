@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+</head>
+<body>
+    <h1>User Information</h1>
+
+    <button onclick="displayUserInfo()">Show My Information</button>
+
+    <!-- Invisible div which could be used to get information and write js to make additional api calls to log information from browser and much more -->
+    <div id="userInfo"></div>
+
+    <script>
+        function displayUserInfo() {
+            // Access user-permitted information (e.g., name, email, password etc)
+            const userName = prompt('Please enter your name:');
+            
+            if (userName) {
+                const userInfoContainer = document.getElementById('userInfo');
+                userInfoContainer.innerHTML = `
+                    <p><strong>Name:</strong> ${userName}</p>
+                    <p><strong>Browser Agent:</strong> ${navigator.userAgent}</p>
+                    <p><strong>Browser Language:</strong> ${navigator.language || navigator.userLanguage}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
